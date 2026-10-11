@@ -1,267 +1,434 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fitnex | Elite Fitness Studio</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Tailwind Configuration -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Oswald', 'sans-serif'],
-                    },
-                    animation: {
-                        marquee: 'marquee 25s linear infinite',
-                    },
-                    keyframes: {
-                        marquee: {
-                            '0%': { transform: 'translateX(0%)' },
-                            '100%': { transform: 'translateX(-50%)' },
-                        }
-                    }
-                }
-            }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fitnex | Elite Fitness Studio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Oswald', 'sans-serif'],
+          },
+          colors: {
+            lime: { 400: '#a3e635', 500: '#84cc16' }
+          }
         }
-    </script>
-
-    <style>
-        /* Custom base styles */
-        body {
-            background-color: #09090b; /* zinc-950 */
-            color: #f4f4f5; /* zinc-100 */
-        }
-        ::selection {
-            background-color: #84cc16; /* lime-500 */
-            color: #09090b; /* zinc-950 */
-        }
-    </style>
+      }
+    }
+  </script>
+  <style>
+    .animate-marquee { display: inline-block; white-space: nowrap; animation: marquee 25s linear infinite; }
+    @keyframes marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-50%); } }
+  </style>
 </head>
-<body class="antialiased min-h-screen flex flex-col">
+<body class="bg-zinc-950 text-zinc-100 antialiased selection:bg-lime-500 selection:text-zinc-950">
 
-    <!-- Navbar -->
-    <header class="fixed top-0 w-full z-50 bg-zinc-950/85 backdrop-blur-md border-b border-zinc-800">
-        <div class="container mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" class="text-3xl font-display font-bold text-white tracking-widest uppercase">
-                Fitnex<span class="text-lime-500">.</span>
+  <!-- Navbar -->
+  <header class="fixed top-0 w-full z-50 bg-zinc-950/90 backdrop-blur-md border-b border-zinc-800">
+    <div class="container mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="#" class="text-3xl font-display font-bold text-white tracking-widest uppercase">
+        Fitnex<span class="text-lime-500">.</span>
+      </a>
+      
+      <nav class="hidden lg:flex items-center gap-8 text-sm font-bold uppercase tracking-widest text-zinc-300">
+        <a href="#programs" class="hover:text-lime-400 transition">Programs</a>
+        <a href="#coaches" class="hover:text-lime-400 transition">Coaches</a>
+        <a href="#pricing" class="hover:text-lime-400 transition">Pricing</a>
+        <a href="#gallery" class="hover:text-lime-400 transition">Gallery</a>
+        <a href="#about" class="hover:text-lime-400 transition">About Us</a>
+      </nav>
+      
+      <div class="hidden md:flex items-center gap-6">
+        <div class="text-right">
+          <p class="text-xs text-zinc-400 uppercase tracking-widest mb-0.5">Free Consultation</p>
+          <p class="text-sm font-bold tracking-wider">+1 (555) 000-0000</p>
+        </div>
+        <a href="#contact" class="bg-white text-zinc-950 px-6 py-2.5 font-display font-bold uppercase tracking-wide text-sm hover:bg-lime-400 transition-colors">
+          Join Now
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="relative min-h-[90vh] flex items-center pt-24 pb-12 overflow-hidden bg-zinc-950">
+      <div class="absolute inset-0 z-0">
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2000" alt="Gym Background" class="w-full h-full object-cover opacity-20 mix-blend-luminosity" />
+        <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent"></div>
+      </div>
+      
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="max-w-4xl">
+          <p class="text-zinc-400 font-mono text-xs uppercase tracking-[0.2em] mb-8">Fitnex Fitness Studio — Est. 2018</p>
+          <div class="mb-6">
+            <p class="text-lime-400 font-bold tracking-widest uppercase mb-4 text-sm md:text-base">Build Your Legacy.</p>
+            <h1 class="text-6xl md:text-8xl lg:text-[7rem] font-display font-bold text-white uppercase leading-[0.9]">
+              Seize Your <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-lime-400 to-emerald-500 italic">Power.</span>
+            </h1>
+          </div>
+          <p class="text-lg md:text-xl text-zinc-300 max-w-xl mt-8 mb-10 leading-relaxed font-medium">
+            Elite coaching. Premium equipment. <br/>
+            A community that pushes you further — whatever your goal.
+          </p>
+          
+          <div class="flex flex-col sm:flex-row flex-wrap gap-4">
+            <a href="#contact" class="bg-lime-500 hover:bg-lime-400 text-zinc-950 px-8 py-4 font-display font-bold uppercase tracking-widest transition flex items-center justify-center gap-3">
+              Get Started Today
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </a>
-            
-            <nav class="hidden lg:flex items-center gap-8 text-sm font-bold uppercase tracking-widest text-zinc-300">
-                <a href="#programs" class="hover:text-lime-400 transition">Programs</a>
-                <a href="#coaches" class="hover:text-lime-400 transition">Coaches</a>
-                <a href="#pricing" class="hover:text-lime-400 transition">Pricing</a>
-                <a href="#about" class="hover:text-lime-400 transition">About Us</a>
-            </nav>
-            
-            <div class="hidden md:flex items-center gap-6">
-                <div class="text-right">
-                    <p class="text-xs text-zinc-400 uppercase tracking-widest mb-0.5">Free Consultation</p>
-                    <p class="text-sm font-bold tracking-wider">+1 (555) 000-0000</p>
-                </div>
-                <a href="#contact" class="bg-white text-zinc-950 px-6 py-2.5 rounded-none font-display font-bold uppercase tracking-wide text-sm hover:bg-lime-400 transition-colors">
-                    Join Now
-                </a>
-            </div>
+            <button class="border border-zinc-700 hover:border-zinc-400 bg-zinc-900/50 backdrop-blur-sm text-white px-8 py-4 font-display font-bold uppercase tracking-widest transition flex items-center justify-center gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+              Watch Teaser
+            </button>
+          </div>
         </div>
-    </header>
+      </div>
+    </section>
 
-    <main class="flex-grow">
-        <!-- Hero Section -->
-        <section class="relative min-h-[90vh] flex items-center pt-24 pb-12 overflow-hidden bg-zinc-950">
-            <div class="absolute inset-0 z-0">
-                <img 
-                    src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2000" 
-                    alt="Gym Background" 
-                    class="w-full h-full object-cover opacity-20 mix-blend-luminosity"
-                />
-                <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent"></div>
-            </div>
-            
-            <div class="container mx-auto px-6 relative z-10">
-                <div class="max-w-4xl">
-                    <p class="text-zinc-400 font-mono text-xs uppercase tracking-[0.2em] mb-8">Fitnex Fitness Studio — Est. 2018</p>
-                    <div class="mb-6">
-                        <p class="text-lime-400 font-bold tracking-widest uppercase mb-4 text-sm md:text-base">Build Your Legacy.</p>
-                        <h1 class="text-6xl md:text-8xl lg:text-[7rem] font-display font-bold text-white uppercase leading-[0.9]">
-                            Seize Your <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-lime-400 to-emerald-500 italic">Power.</span>
-                        </h1>
-                    </div>
-                    <p class="text-lg md:text-xl text-zinc-300 max-w-xl mt-8 mb-10 leading-relaxed font-medium">
-                        Elite coaching. Premium equipment. <br/>
-                        A community that pushes you further — whatever your goal.
-                    </p>
-                    
-                    <div class="flex flex-col sm:flex-row flex-wrap gap-4">
-                        <a href="#contact" class="bg-lime-500 hover:bg-lime-400 text-zinc-950 px-8 py-4 font-display font-bold uppercase tracking-widest transition flex items-center justify-center gap-3">
-                            Get Started Today 
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                        </a>
-                        <button class="border border-zinc-700 hover:border-zinc-400 bg-zinc-900/50 backdrop-blur-sm text-white px-8 py-4 font-display font-bold uppercase tracking-widest transition flex items-center justify-center gap-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg>
-                            Watch Teaser
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <!-- Marquee -->
+    <div class="bg-lime-500 text-zinc-950 py-5 overflow-hidden whitespace-nowrap border-y border-lime-400 w-full">
+      <div class="animate-marquee flex gap-12 px-6 font-display font-bold text-2xl uppercase tracking-wider">
+        <div class="flex items-center gap-12"><span>2,000+ ACTIVE MEMBERS</span><span class="w-2 h-2 rounded-full bg-zinc-950"></span></div>
+        <div class="flex items-center gap-12"><span>★ RATED 4.9 / 5</span><span class="w-2 h-2 rounded-full bg-zinc-950"></span></div>
+        <div class="flex items-center gap-12"><span>NO CONTRACTS. NO EXCUSES.</span><span class="w-2 h-2 rounded-full bg-zinc-950"></span></div>
+        <div class="flex items-center gap-12"><span>8+ YEARS OF EXCELLENCE</span><span class="w-2 h-2 rounded-full bg-zinc-950"></span></div>
+        <div class="flex items-center gap-12"><span>OPEN 6 DAYS A WEEK</span><span class="w-2 h-2 rounded-full bg-zinc-950"></span></div>
+        <div class="flex items-center gap-12"><span>RESULTS GUARANTEED</span><span class="w-2 h-2 rounded-full bg-zinc-950"></span></div>
+        <!-- Duplicates for scrolling effect -->
+        <div class="flex items-center gap-12"><span>2,000+ ACTIVE MEMBERS</span><span class="w-2 h-2 rounded-full bg-zinc-950"></span></div>
+        <div class="flex items-center gap-12"><span>★ RATED 4.9 / 5</span><span class="w-2 h-2 rounded-full bg-zinc-950"></span></div>
+        <div class="flex items-center gap-12"><span>NO CONTRACTS. NO EXCUSES.</span><span class="w-2 h-2 rounded-full bg-zinc-950"></span></div>
+      </div>
+    </div>
 
-        <!-- Features Marquee -->
-        <div class="bg-lime-500 text-zinc-950 py-5 overflow-hidden flex whitespace-nowrap border-y border-lime-400">
-            <div class="animate-marquee flex gap-12 px-6 font-display font-bold text-2xl uppercase tracking-wider">
-                <!-- Repeated blocks for continuous animation -->
-                <div class="flex items-center gap-12">
-                    <span>2,000+ ACTIVE MEMBERS</span><span class="w-2 h-2 rounded-full bg-zinc-950"></span>
-                    <span>★ RATED 4.9 / 5</span><span class="w-2 h-2 rounded-full bg-zinc-950"></span>
-                    <span>NO CONTRACTS. NO EXCUSES.</span><span class="w-2 h-2 rounded-full bg-zinc-950"></span>
-                    <span>8+ YEARS OF EXCELLENCE</span><span class="w-2 h-2 rounded-full bg-zinc-950"></span>
-                    <span>OPEN EVERY DAY</span><span class="w-2 h-2 rounded-full bg-zinc-950"></span>
-                    <span>RESULTS GUARANTEED</span><span class="w-2 h-2 rounded-full bg-zinc-950"></span>
-                </div>
-                <div class="flex items-center gap-12">
-                    <span>2,000+ ACTIVE MEMBERS</span><span class="w-2 h-2 rounded-full bg-zinc-950"></span>
-                    <span>★ RATED 4.9 / 5</span><span class="w-2 h-2 rounded-full bg-zinc-950"></span>
-                    <span>NO CONTRACTS. NO EXCUSES.</span><span class="w-2 h-2 rounded-full bg-zinc-950"></span>
-                    <span>8+ YEARS OF EXCELLENCE</span><span class="w-2 h-2 rounded-full bg-zinc-950"></span>
-                    <span>OPEN EVERY DAY</span><span class="w-2 h-2 rounded-full bg-zinc-950"></span>
-                    <span>RESULTS GUARANTEED</span><span class="w-2 h-2 rounded-full bg-zinc-950"></span>
-                </div>
-                <div class="flex items-center gap-12">
-                    <span>2,000+ ACTIVE MEMBERS</span><span class="w-2 h-2 rounded-full bg-zinc-950"></span>
-                    <span>★ RATED 4.9 / 5</span><span class="w-2 h-2 rounded-full bg-zinc-950"></span>
-                    <span>NO CONTRACTS. NO EXCUSES.</span><span class="w-2 h-2 rounded-full bg-zinc-950"></span>
-                    <span>8+ YEARS OF EXCELLENCE</span><span class="w-2 h-2 rounded-full bg-zinc-950"></span>
-                    <span>OPEN EVERY DAY</span><span class="w-2 h-2 rounded-full bg-zinc-950"></span>
-                    <span>RESULTS GUARANTEED</span><span class="w-2 h-2 rounded-full bg-zinc-950"></span>
-                </div>
+    <!-- Programs -->
+    <section id="programs" class="py-24 md:py-32 bg-zinc-950 text-white">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+          <div>
+            <div class="flex items-center gap-4 mb-4">
+              <div class="h-px w-12 bg-lime-500"></div>
+              <p class="text-lime-400 uppercase tracking-widest font-bold text-xs">Our Programs</p>
             </div>
+            <h2 class="text-5xl md:text-7xl font-display font-bold uppercase leading-[1.1]">Find Your<br/>Perfect Fit.</h2>
+          </div>
+          <p class="text-zinc-400 max-w-sm text-base md:text-lg border-l-2 border-zinc-800 pl-6">
+            Four distinct paths. One goal — to make you stronger than yesterday.
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="border border-zinc-800 p-8 md:p-10 hover:border-lime-500/50 transition-colors duration-300 group bg-zinc-900/40">
+            <h3 class="text-2xl md:text-3xl font-display font-bold uppercase mb-4 group-hover:text-lime-400 transition-colors duration-300 w-5/6">STRENGTH & POWERLIFTING</h3>
+            <p class="text-zinc-400 mb-10 min-h-[4rem] leading-relaxed">Build raw power and muscle mass with structured progressive training designed for all levels.</p>
+            <div class="flex flex-wrap gap-3">
+              <span class="bg-zinc-950 border border-zinc-800 text-zinc-300 px-4 py-1.5 text-xs font-bold uppercase tracking-wider">Max 8 per group</span>
+              <span class="bg-zinc-950 border border-zinc-800 text-zinc-300 px-4 py-1.5 text-xs font-bold uppercase tracking-wider">60 min / session</span>
+            </div>
+          </div>
+          <div class="border border-zinc-800 p-8 md:p-10 hover:border-lime-500/50 transition-colors duration-300 group bg-zinc-900/40">
+            <h3 class="text-2xl md:text-3xl font-display font-bold uppercase mb-4 group-hover:text-lime-400 transition-colors duration-300 w-5/6">HIIT & CARDIO</h3>
+            <p class="text-zinc-400 mb-10 min-h-[4rem] leading-relaxed">High-intensity intervals that torch calories and boost your endurance fast.</p>
+            <div class="flex flex-wrap gap-3">
+              <span class="bg-zinc-950 border border-zinc-800 text-zinc-300 px-4 py-1.5 text-xs font-bold uppercase tracking-wider">45 min</span>
+              <span class="bg-zinc-950 border border-zinc-800 text-zinc-300 px-4 py-1.5 text-xs font-bold uppercase tracking-wider">Mon · Wed · Fri</span>
+            </div>
+          </div>
+          <div class="border border-zinc-800 p-8 md:p-10 hover:border-lime-500/50 transition-colors duration-300 group bg-zinc-900/40">
+            <h3 class="text-2xl md:text-3xl font-display font-bold uppercase mb-4 group-hover:text-lime-400 transition-colors duration-300 w-5/6">PERSONAL TRAINING</h3>
+            <p class="text-zinc-400 mb-10 min-h-[4rem] leading-relaxed">One-on-one sessions built entirely around your goals, schedule, and body.</p>
+            <div class="flex flex-wrap gap-3">
+              <span class="bg-zinc-950 border border-zinc-800 text-zinc-300 px-4 py-1.5 text-xs font-bold uppercase tracking-wider">Flexible</span>
+              <span class="bg-zinc-950 border border-zinc-800 text-zinc-300 px-4 py-1.5 text-xs font-bold uppercase tracking-wider">By appointment</span>
+            </div>
+          </div>
+          <div class="border border-zinc-800 p-8 md:p-10 hover:border-lime-500/50 transition-colors duration-300 group bg-zinc-900/40">
+            <h3 class="text-2xl md:text-3xl font-display font-bold uppercase mb-4 group-hover:text-lime-400 transition-colors duration-300 w-5/6">GROUP CLASSES</h3>
+            <p class="text-zinc-400 mb-10 min-h-[4rem] leading-relaxed">Train harder when you train together. High-energy sessions led by expert coaches.</p>
+            <div class="flex flex-wrap gap-3">
+              <span class="bg-zinc-950 border border-zinc-800 text-zinc-300 px-4 py-1.5 text-xs font-bold uppercase tracking-wider">50 min / session</span>
+              <span class="bg-zinc-950 border border-zinc-800 text-zinc-300 px-4 py-1.5 text-xs font-bold uppercase tracking-wider">Mon - Sat</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Coaches Section -->
+    <section id="coaches" class="py-24 md:py-32 bg-zinc-900 text-white border-y border-zinc-800">
+      <div class="container mx-auto px-6">
+        <div class="mb-16">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="h-px w-12 bg-lime-500"></div>
+            <p class="text-lime-400 uppercase tracking-widest font-bold text-xs">Our Experts</p>
+          </div>
+          <h2 class="text-5xl md:text-7xl font-display font-bold uppercase leading-[1.1]">Meet The<br/>Coaches.</h2>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="group relative bg-zinc-950 border border-zinc-800 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?auto=format&fit=crop&q=80&w=800" alt="Marcus Thorne" class="w-full h-[450px] object-cover grayscale group-hover:grayscale-0 transition duration-500">
+            <div class="p-6 absolute bottom-0 left-0 w-full bg-gradient-to-t from-zinc-950 via-zinc-950/80 to-transparent pt-12">
+              <h3 class="text-2xl font-display font-bold uppercase mb-1 text-white">Marcus Thorne</h3>
+              <p class="text-lime-400 text-sm font-bold tracking-widest uppercase">Head of Strength</p>
+            </div>
+          </div>
+          <div class="group relative bg-zinc-950 border border-zinc-800 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&q=80&w=800" alt="Elena Rostova" class="w-full h-[450px] object-cover grayscale group-hover:grayscale-0 transition duration-500">
+            <div class="p-6 absolute bottom-0 left-0 w-full bg-gradient-to-t from-zinc-950 via-zinc-950/80 to-transparent pt-12">
+              <h3 class="text-2xl font-display font-bold uppercase mb-1 text-white">Elena Rostova</h3>
+              <p class="text-lime-400 text-sm font-bold tracking-widest uppercase">HIIT Specialist</p>
+            </div>
+          </div>
+          <div class="group relative bg-zinc-950 border border-zinc-800 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1590487988256-9ed24133863e?auto=format&fit=crop&q=80&w=800" alt="David Chen" class="w-full h-[450px] object-cover grayscale group-hover:grayscale-0 transition duration-500">
+            <div class="p-6 absolute bottom-0 left-0 w-full bg-gradient-to-t from-zinc-950 via-zinc-950/80 to-transparent pt-12">
+              <h3 class="text-2xl font-display font-bold uppercase mb-1 text-white">David Chen</h3>
+              <p class="text-lime-400 text-sm font-bold tracking-widest uppercase">Mobility & Rehab</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-24 md:py-32 bg-zinc-950 text-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <div class="flex items-center justify-center gap-4 mb-4">
+            <div class="h-px w-8 bg-lime-500"></div>
+            <p class="text-lime-400 uppercase tracking-widest font-bold text-xs">Memberships</p>
+            <div class="h-px w-8 bg-lime-500"></div>
+          </div>
+          <h2 class="text-5xl md:text-7xl font-display font-bold uppercase leading-[1.1]">Transparent<br/>Pricing.</h2>
         </div>
 
-        <!-- Programs Section -->
-        <section id="programs" class="py-24 md:py-32 bg-zinc-950 text-white">
-            <div class="container mx-auto px-6">
-                <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
-                    <div>
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="h-px w-12 bg-lime-500"></div>
-                            <p class="text-lime-400 uppercase tracking-widest font-bold text-xs">Our Programs</p>
-                        </div>
-                        <h2 class="text-5xl md:text-7xl font-display font-bold uppercase leading-[1.1]">Find Your<br/>Perfect Fit.</h2>
-                    </div>
-                    <p class="text-zinc-400 max-w-sm text-base md:text-lg border-l-2 border-zinc-800 pl-6">
-                        Four distinct paths. One goal — to make you stronger than yesterday.
-                    </p>
-                </div>
-                
-                <div class="grid md:grid-cols-2 gap-6">
-                    <!-- Card 1 -->
-                    <div class="border border-zinc-800 p-8 md:p-10 hover:border-lime-500/50 transition-colors duration-300 group bg-zinc-900/40 relative">
-                        <div class="absolute top-0 right-0 p-8 opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-300">
-                            <svg class="text-lime-500" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                        </div>
-                        <h3 class="text-2xl md:text-3xl font-display font-bold uppercase mb-4 group-hover:text-lime-400 transition-colors duration-300 w-5/6">STRENGTH & POWERLIFTING</h3>
-                        <p class="text-zinc-400 mb-10 min-h-[4rem] leading-relaxed">Build raw power and muscle mass with structured progressive training designed for all levels.</p>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="bg-zinc-950 border border-zinc-800 text-zinc-300 px-4 py-1.5 text-xs font-bold uppercase tracking-wider">Max 8 per group</span>
-                            <span class="bg-zinc-950 border border-zinc-800 text-zinc-300 px-4 py-1.5 text-xs font-bold uppercase tracking-wider">60 min / session</span>
-                        </div>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="border border-zinc-800 p-8 md:p-10 hover:border-lime-500/50 transition-colors duration-300 group bg-zinc-900/40 relative">
-                        <div class="absolute top-0 right-0 p-8 opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-300">
-                            <svg class="text-lime-500" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                        </div>
-                        <h3 class="text-2xl md:text-3xl font-display font-bold uppercase mb-4 group-hover:text-lime-400 transition-colors duration-300 w-5/6">HIIT & CARDIO</h3>
-                        <p class="text-zinc-400 mb-10 min-h-[4rem] leading-relaxed">High-intensity intervals that torch calories and boost your endurance fast.</p>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="bg-zinc-950 border border-zinc-800 text-zinc-300 px-4 py-1.5 text-xs font-bold uppercase tracking-wider">45 min</span>
-                            <span class="bg-zinc-950 border border-zinc-800 text-zinc-300 px-4 py-1.5 text-xs font-bold uppercase tracking-wider">Mon · Wed · Fri</span>
-                        </div>
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div class="border border-zinc-800 p-8 md:p-10 hover:border-lime-500/50 transition-colors duration-300 group bg-zinc-900/40 relative">
-                        <div class="absolute top-0 right-0 p-8 opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-300">
-                            <svg class="text-lime-500" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                        </div>
-                        <h3 class="text-2xl md:text-3xl font-display font-bold uppercase mb-4 group-hover:text-lime-400 transition-colors duration-300 w-5/6">PERSONAL TRAINING</h3>
-                        <p class="text-zinc-400 mb-10 min-h-[4rem] leading-relaxed">One-on-one sessions built entirely around your goals, schedule, and body.</p>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="bg-zinc-950 border border-zinc-800 text-zinc-300 px-4 py-1.5 text-xs font-bold uppercase tracking-wider">Flexible</span>
-                            <span class="bg-zinc-950 border border-zinc-800 text-zinc-300 px-4 py-1.5 text-xs font-bold uppercase tracking-wider">By appointment</span>
-                        </div>
-                    </div>
-
-                    <!-- Card 4 -->
-                    <div class="border border-zinc-800 p-8 md:p-10 hover:border-lime-500/50 transition-colors duration-300 group bg-zinc-900/40 relative">
-                        <div class="absolute top-0 right-0 p-8 opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-300">
-                            <svg class="text-lime-500" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                        </div>
-                        <h3 class="text-2xl md:text-3xl font-display font-bold uppercase mb-4 group-hover:text-lime-400 transition-colors duration-300 w-5/6">GROUP CLASSES</h3>
-                        <p class="text-zinc-400 mb-10 min-h-[4rem] leading-relaxed">Train harder when you train together. High-energy sessions led by expert coaches.</p>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="bg-zinc-950 border border-zinc-800 text-zinc-300 px-4 py-1.5 text-xs font-bold uppercase tracking-wider">50 min / session</span>
-                            <span class="bg-zinc-950 border border-zinc-800 text-zinc-300 px-4 py-1.5 text-xs font-bold uppercase tracking-wider">Every day</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="mt-20 flex flex-col items-center justify-center text-center">
-                    <p class="text-zinc-500 mb-6 uppercase tracking-widest font-bold text-sm">Not sure where to start?</p>
-                    <a href="#contact" class="border-b-2 border-lime-500 pb-1 text-xl font-display font-bold uppercase hover:text-lime-400 transition-colors flex items-center gap-3">
-                        Get a Free Consultation 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </a>
-                </div>
+        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <!-- Basic Plan -->
+          <div class="border border-zinc-800 bg-zinc-900/40 p-10 flex flex-col">
+            <h3 class="text-2xl font-display font-bold uppercase text-zinc-300 mb-2">Basic Tier</h3>
+            <div class="mb-8">
+              <span class="text-5xl font-display font-bold">$49</span>
+              <span class="text-zinc-500 uppercase tracking-wider text-sm font-bold">/month</span>
             </div>
-        </section>
-    </main>
+            <ul class="space-y-4 mb-10 flex-grow text-zinc-400">
+              <li class="flex items-center gap-3"><svg class="text-lime-500 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Full gym access</li>
+              <li class="flex items-center gap-3"><svg class="text-lime-500 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Locker room & showers</li>
+              <li class="flex items-center gap-3"><svg class="text-lime-500 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Free intro assessment</li>
+            </ul>
+            <a href="#contact" class="block text-center border border-zinc-700 hover:border-lime-500 hover:bg-lime-500 hover:text-zinc-950 py-4 font-display font-bold uppercase tracking-widest transition">Choose Basic</a>
+          </div>
+          
+          <!-- Pro Plan (Highlighted) -->
+          <div class="border-2 border-lime-500 bg-zinc-900 p-10 flex flex-col relative transform md:-translate-y-4">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-lime-500 text-zinc-950 px-4 py-1 text-xs font-bold uppercase tracking-widest">Most Popular</div>
+            <h3 class="text-2xl font-display font-bold uppercase text-lime-400 mb-2">Pro Tier</h3>
+            <div class="mb-8">
+              <span class="text-5xl font-display font-bold text-white">$89</span>
+              <span class="text-zinc-500 uppercase tracking-wider text-sm font-bold">/month</span>
+            </div>
+            <ul class="space-y-4 mb-10 flex-grow text-zinc-300">
+              <li class="flex items-center gap-3"><svg class="text-lime-500 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Everything in Basic</li>
+              <li class="flex items-center gap-3"><svg class="text-lime-500 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Unlimited Group Classes</li>
+              <li class="flex items-center gap-3"><svg class="text-lime-500 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 1 PT session per month</li>
+              <li class="flex items-center gap-3"><svg class="text-lime-500 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Guest pass (2/mo)</li>
+            </ul>
+            <a href="#contact" class="block text-center bg-lime-500 text-zinc-950 hover:bg-lime-400 py-4 font-display font-bold uppercase tracking-widest transition">Choose Pro</a>
+          </div>
 
-    <!-- Footer -->
-    <footer class="bg-zinc-950 border-t border-zinc-900 pt-20 pb-10 mt-auto">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                <div class="md:col-span-2">
-                    <a href="#" class="text-4xl font-display font-bold text-white tracking-widest uppercase mb-6 inline-block">
-                        Fitnex<span class="text-lime-500">.</span>
-                    </a>
-                    <p class="text-zinc-400 max-w-sm mb-8 leading-relaxed">
-                        A placeholder brand demonstrating independent frontend development, built entirely from scratch with HTML and Tailwind CSS.
-                    </p>
+          <!-- Elite Plan -->
+          <div class="border border-zinc-800 bg-zinc-900/40 p-10 flex flex-col">
+            <h3 class="text-2xl font-display font-bold uppercase text-zinc-300 mb-2">Elite Tier</h3>
+            <div class="mb-8">
+              <span class="text-5xl font-display font-bold">$199</span>
+              <span class="text-zinc-500 uppercase tracking-wider text-sm font-bold">/month</span>
+            </div>
+            <ul class="space-y-4 mb-10 flex-grow text-zinc-400">
+              <li class="flex items-center gap-3"><svg class="text-lime-500 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Everything in Pro</li>
+              <li class="flex items-center gap-3"><svg class="text-lime-500 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 4 PT sessions per month</li>
+              <li class="flex items-center gap-3"><svg class="text-lime-500 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Recovery room access</li>
+              <li class="flex items-center gap-3"><svg class="text-lime-500 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Dedicated locker</li>
+            </ul>
+            <a href="#contact" class="block text-center border border-zinc-700 hover:border-lime-500 hover:bg-lime-500 hover:text-zinc-950 py-4 font-display font-bold uppercase tracking-widest transition">Choose Elite</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-4 bg-zinc-950">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 px-4">
+        <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80&w=600" alt="Gym Member Training" class="w-full aspect-square object-cover hover:opacity-80 transition duration-300 border border-zinc-800">
+        <img src="https://images.unsplash.com/photo-1570829460005-c840387be216?auto=format&fit=crop&q=80&w=600" alt="Heavy Weights" class="w-full aspect-square object-cover hover:opacity-80 transition duration-300 border border-zinc-800">
+        <img src="https://images.unsplash.com/photo-1517836357463-d25dfe09ce14?auto=format&fit=crop&q=80&w=600" alt="Gym Floor" class="w-full aspect-square object-cover hover:opacity-80 transition duration-300 border border-zinc-800">
+        <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=600" alt="Member Motivation" class="w-full aspect-square object-cover hover:opacity-80 transition duration-300 border border-zinc-800">
+      </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-24 md:py-32 bg-zinc-900 border-y border-zinc-800 text-white mt-12">
+      <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+          <div>
+            <div class="flex items-center gap-4 mb-4">
+              <div class="h-px w-12 bg-lime-500"></div>
+              <p class="text-lime-400 uppercase tracking-widest font-bold text-xs">The Fitnex Story</p>
+            </div>
+            <h2 class="text-5xl md:text-6xl font-display font-bold uppercase leading-[1.1] mb-8">More Than <br/>A Gym.</h2>
+            <p class="text-zinc-400 text-lg leading-relaxed mb-6">
+              Since 2018, Fitnex has been built on a simple philosophy: no gimmicks, no shortcuts, just relentless dedication to progress. We stripped away the spa-like distractions and focused entirely on providing elite equipment and world-class coaching.
+            </p>
+            <p class="text-zinc-400 text-lg leading-relaxed mb-10">
+              Whether you are an aspiring athlete or stepping into a gym for the first time, our community is here to hold you accountable, push your limits, and help you forge a stronger version of yourself.
+            </p>
+            <div class="grid grid-cols-3 gap-6 border-t border-zinc-800 pt-8">
+              <div>
+                <p class="text-4xl font-display font-bold text-white mb-1">10k+</p>
+                <p class="text-xs text-lime-400 font-bold uppercase tracking-widest">Lives Changed</p>
+              </div>
+              <div>
+                <p class="text-4xl font-display font-bold text-white mb-1">15k</p>
+                <p class="text-xs text-lime-400 font-bold uppercase tracking-widest">Sq. Ft. Floor</p>
+              </div>
+              <div>
+                <p class="text-4xl font-display font-bold text-white mb-1">24/7</p>
+                <p class="text-xs text-lime-400 font-bold uppercase tracking-widest">Dedication</p>
+              </div>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="absolute inset-0 bg-lime-500 translate-x-4 translate-y-4"></div>
+            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=800" alt="Inside the Gym" class="relative z-10 w-full h-[600px] object-cover border border-zinc-800 grayscale hover:grayscale-0 transition duration-500">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Join Now -->
+    <section id="contact" class="py-24 md:py-32 bg-zinc-950 text-white">
+      <div class="container mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-16">
+          
+          <!-- Contact Form -->
+          <div>
+            <div class="flex items-center gap-4 mb-4">
+              <div class="h-px w-12 bg-lime-500"></div>
+              <p class="text-lime-400 uppercase tracking-widest font-bold text-xs">Take Action</p>
+            </div>
+            <h2 class="text-5xl font-display font-bold uppercase leading-[1.1] mb-8">Join Now.</h2>
+            <p class="text-zinc-400 mb-10">Ready to start? Fill out the form below to claim your free consultation and one-day trial pass.</p>
+            
+            <form class="space-y-6" onsubmit="event.preventDefault(); alert('Form submitted! We will contact you soon.');">
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">First Name</label>
+                  <input type="text" required class="w-full bg-zinc-900 border border-zinc-800 px-4 py-3 text-white focus:outline-none focus:border-lime-500 transition">
                 </div>
                 <div>
-                    <h4 class="text-white font-display font-bold uppercase tracking-widest mb-6">Explore</h4>
-                    <ul class="space-y-4 text-zinc-400 font-medium text-sm tracking-wide uppercase">
-                        <li><a href="#programs" class="hover:text-lime-400 transition-colors">Programs</a></li>
-                        <li><a href="#coaches" class="hover:text-lime-400 transition-colors">Coaches</a></li>
-                        <li><a href="#pricing" class="hover:text-lime-400 transition-colors">Pricing</a></li>
-                    </ul>
+                  <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Last Name</label>
+                  <input type="text" required class="w-full bg-zinc-900 border border-zinc-800 px-4 py-3 text-white focus:outline-none focus:border-lime-500 transition">
                 </div>
-                <div>
-                    <h4 class="text-white font-display font-bold uppercase tracking-widest mb-6">Contact</h4>
-                    <ul class="space-y-4 text-zinc-400 text-sm font-medium">
-                        <li class="hover:text-white transition-colors cursor-pointer">hello@fitnex-placeholder.com</li>
-                        <li class="hover:text-white transition-colors cursor-pointer">+1 (555) 000-0000</li>
-                        <li>123 Fitness Ave, NY 10001</li>
-                    </ul>
-                </div>
+              </div>
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Email Address</label>
+                <input type="email" required class="w-full bg-zinc-900 border border-zinc-800 px-4 py-3 text-white focus:outline-none focus:border-lime-500 transition">
+              </div>
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Primary Goal</label>
+                <select class="w-full bg-zinc-900 border border-zinc-800 px-4 py-3 text-zinc-300 focus:outline-none focus:border-lime-500 transition appearance-none">
+                  <option>Build Muscle & Strength</option>
+                  <option>Lose Weight & Tone Up</option>
+                  <option>Improve Endurance</option>
+                  <option>General Fitness & Health</option>
+                </select>
+              </div>
+              <button type="submit" class="w-full bg-lime-500 text-zinc-950 py-4 font-display font-bold uppercase tracking-widest hover:bg-lime-400 transition mt-4">
+                Claim Free Trial
+              </button>
+            </form>
+          </div>
+
+          <!-- Location and Hours -->
+          <div class="space-y-8">
+            <!-- Hours Box -->
+            <div class="bg-zinc-900 border border-zinc-800 p-8 md:p-10">
+              <h3 class="text-2xl font-display font-bold uppercase mb-6 text-white border-b border-zinc-800 pb-4">Operating Hours</h3>
+              <ul class="space-y-4 text-zinc-300 tracking-wide">
+                <li class="flex justify-between items-center">
+                  <span class="font-bold uppercase text-sm">Monday - Saturday</span> 
+                  <span class="text-lime-400 font-mono">6:00 AM - 10:00 PM</span>
+                </li>
+                <li class="flex justify-between items-center border-t border-zinc-800 pt-4 text-zinc-500">
+                  <span class="font-bold uppercase text-sm">Sunday</span> 
+                  <span class="font-mono">Closed (Rest Day)</span>
+                </li>
+              </ul>
             </div>
-            <div class="border-t border-zinc-900 pt-8 flex flex-col md:flex-row items-center justify-between text-zinc-600 text-xs font-medium uppercase tracking-widest">
-                <p>&copy; 2026 Fitnex Placeholder. All rights reserved.</p>
-                <p class="mt-4 md:mt-0">Built independently by AI.</p>
+            
+            <!-- Map -->
+            <div class="h-[350px] border border-zinc-800 bg-zinc-900 relative">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124415.53932822183!2d77.50196238691515!3d12.973413936662758!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"
+                class="grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition duration-500 w-full h-full">
+              </iframe>
             </div>
+          </div>
+
         </div>
-    </footer>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-zinc-950 border-t border-zinc-900 pt-20 pb-10 mt-auto">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+        <div class="md:col-span-2">
+          <a href="#" class="text-4xl font-display font-bold text-white tracking-widest uppercase mb-6 inline-block">
+            Fitnex<span class="text-lime-500">.</span>
+          </a>
+          <p class="text-zinc-400 max-w-sm mb-8 leading-relaxed">
+            A premium fitness facility dedicated to strength, endurance, and community.
+          </p>
+        </div>
+        <div>
+          <h4 class="text-white font-display font-bold uppercase tracking-widest mb-6">Explore</h4>
+          <ul class="space-y-4 text-zinc-400 font-medium text-sm tracking-wide uppercase">
+            <li><a href="#programs" class="hover:text-lime-400 transition-colors">Programs</a></li>
+            <li><a href="#coaches" class="hover:text-lime-400 transition-colors">Coaches</a></li>
+            <li><a href="#pricing" class="hover:text-lime-400 transition-colors">Pricing</a></li>
+            <li><a href="#gallery" class="hover:text-lime-400 transition-colors">Gallery</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-display font-bold uppercase tracking-widest mb-6">Contact</h4>
+          <ul class="space-y-4 text-zinc-400 text-sm font-medium">
+            <li class="hover:text-white transition-colors cursor-pointer">hello@fitnex.com</li>
+            <li class="hover:text-white transition-colors cursor-pointer">+1 (555) 000-0000</li>
+            <li>Bengaluru, Karnataka</li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-zinc-900 pt-8 flex flex-col md:flex-row items-center justify-between text-zinc-600 text-xs font-medium uppercase tracking-widest">
+        <p>&copy; 2026 Fitnex. All rights reserved.</p>
+        <p class="mt-4 md:mt-0">Made for Excellence.</p>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>
